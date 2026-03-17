@@ -34,8 +34,8 @@ def forgot_password(account_name,new_account_password,account_email):
     else:
         print("Account does not exist")
 
-sign_up("Rolandreads11","roro1234","rolandtenkoko@gmail.com")
-forgot_password("Rolandreads11","roro1234","rolandtenkoko@gmail.com")
+# sign_up("Rolandreads11","roro1234","rolandtenkoko@gmail.com")
+# forgot_password("Rolandreads11","roro1234","rolandtenkoko@gmail.com")
 
 
         
