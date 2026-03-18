@@ -17,7 +17,7 @@ def load_transactions():
         transaction_history = {}
 
 def add_transaction(user,amount,category,type,description,date):
-    if user not in user_info():
+    if user not in user_info:
         return "User does not exist"
     transaction_id = str(uuid.uuid4())
     transaction_history[transaction_id] = {
