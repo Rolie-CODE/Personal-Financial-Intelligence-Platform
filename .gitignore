@@ -1,4 +1,4 @@
 
-transaction_history.json
 * .pyc
-__pycache__/
+*__pycache__/
+*.json

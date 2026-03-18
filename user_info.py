@@ -61,7 +61,7 @@ def sign_in(account_name,account_password):
     if account_name in user_info:
         hashed_password = hash_password(account_password)
         if hashed_password == user_info[account_name]["password"]:
-            return "Congratulations, you have successfully signed in!"
+            return "Successful"
 
         else:
            return "Incorrect password"
@@ -100,5 +100,4 @@ def deactivate_account(account_name,account_password):
     else:
         return("Account does not exist")
     
-load_data()
-load_transactions()
+
