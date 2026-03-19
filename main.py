@@ -13,6 +13,7 @@ from transactions import view_transactions
 from transactions import edit_transaction
 from transactions import delete_transaction
 from transactions import save_transactions
+from analysis import get_financial_summary
 
 
 def transaction_menu(account_name):
@@ -21,7 +22,8 @@ def transaction_menu(account_name):
         print("2. View Transactions")
         print("3. Edit Transaction")
         print("4. Delete Transaction")
-        print("5. Exit")
+        print("5. Get Financial Summary")
+        print("6. Exit")
 
         request = input("")
         try:
@@ -46,7 +48,7 @@ def transaction_menu(account_name):
             print(result)
         
         elif request == 3:
-            transaction_id = input("Enter the transaction ID: ")
+            transaction_id = transaction_id
             user = account_name
             amount = input("Enter the new transaction amount: ")
             category = input("Enter the new transaction category: ")
@@ -62,6 +64,11 @@ def transaction_menu(account_name):
             print(result)
 
         elif request == 5:
+            user = account_name
+            result = get_financial_summary(user)
+            print(result)
+
+        elif request == 6:
             save_transactions()
             print("Exiting Transaction Management System. Goodbye!")
             return
