@@ -20,8 +20,8 @@ def add_transaction(user,amount,category,type,description,date):
     if user not in user_info:
         return "User does not exist"
     transaction_id = str(uuid.uuid4())
-    transaction_history[transaction_id] = {
-        "user": user,
+    transaction_history[user] = {
+        "id" : transaction_id,
         "amount": amount,
         "category": category,
         "type": type,
@@ -40,10 +40,9 @@ def delete_transaction(transaction_id):
         return "Transaction not found"
 
 def view_transactions(user):
-    if user not in user_info:
-        return "User does not exist"
-    user_transactions = {tid: details for tid, details in transaction_history.items() if details["user"] == user}
-    return user_transactions
+    for user in transaction_history:
+        return transaction_history[user]
+    
 
 def edit_transaction(transaction_id, user, amount, category, type, description, date):
     if user not in user_info:
