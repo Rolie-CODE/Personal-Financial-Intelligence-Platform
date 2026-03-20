@@ -1,18 +1,26 @@
 from storage import transaction_history
 
+
 def get_financial_summary(user):
+
     income = 0
     expenses = 0
 
-    print(transaction_history)
+    transactions = transaction_history.get(user, [])
 
-    if user in transaction_history:
-        for transaction in transaction_history[user]:
 
-            if transaction["type"] == "income":
-                income += transaction["amount"]
+    for transaction in transactions:
 
-            elif transaction["type"] == "expenses":
-                expenses += transaction["amount"]
+        if transaction["type"] == "income":
+            income += transaction["amount"]
 
-    return income - expenses
+        elif transaction["type"] == "expense":
+            expenses += transaction["amount"]
+
+    balance = income - expenses
+
+    return {
+        "Total Income": income,
+        "Total Expenses": expenses,
+        "Balance": balance
+    }

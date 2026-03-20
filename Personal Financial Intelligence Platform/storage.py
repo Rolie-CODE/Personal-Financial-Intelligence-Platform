@@ -1,7 +1,4 @@
-user_info = {
-    
-}
 
-transaction_history = {
+user_info = {}
 
-}
+transaction_history = {}

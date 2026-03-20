@@ -1,135 +1,111 @@
-# Building a command line program that will be able to test my program and see if any errors areive
-
-
-from user_info import sign_up
-from user_info import sign_in
-from user_info import forgot_password
-from user_info import deactivate_account
-from user_info import load_data
-from user_info import save_data
-from transactions import add_transaction
-from transactions import load_transactions
-from transactions import view_transactions
-from transactions import edit_transaction
-from transactions import delete_transaction
-from transactions import save_transactions
+from user_info import *
+from transactions import *
 from analysis import get_financial_summary
 
 
 def transaction_menu(account_name):
+
     while True:
         print("1. Add Transaction")
         print("2. View Transactions")
-        print("3. Edit Transaction")
-        print("4. Delete Transaction")
-        print("5. Get Financial Summary")
+        print("3. Delete Transaction")
+        print("4. Edit Transaction")
+        print("5. Financial Summary")
         print("6. Exit")
 
         request = input("")
+
         try:
             request = int(request)
         except ValueError:
-            print("Invalid input. Please enter a number between 1 and 5.")
-            return
-        
+            print("Enter number between 1 and 6")
+            continue
+
         if request == 1:
-            user = account_name
-            amount = input("Enter the transaction amount: ")
-            category = input("Enter the transaction category: ")
-            type = input("Enter the transaction type (income/expense): ")
-            description = input("Enter a description for the transaction: ")
-            date = input("Enter the transaction date (YYYY-MM-DD): ")
-            result = add_transaction(user,amount,category,type,description,date)
-            print(result)
+
+            amount = input("Amount: ")
+            category = input("Category: ")
+            type = input("Type (income/expense): ").lower().strip()
+            description = input("Description: ")
+            date = input("Date (YYYY-MM-DD): ")
+
+            print(add_transaction(
+                account_name, amount, category,
+                type, description, date
+            ))
 
         elif request == 2:
-            user = account_name
-            result = view_transactions(user)
-            print(result)
-        
+            print(view_transactions(account_name))
+
         elif request == 3:
-            transaction_id = transaction_id
-            user = account_name
-            amount = input("Enter the new transaction amount: ")
-            category = input("Enter the new transaction category: ")
-            type = input("Enter the new transaction type (income/expense): ")
-            description = input("Enter a new description for the transaction: ")
-            date = input("Enter the new transaction date (YYYY-MM-DD): ")
-            result = edit_transaction(transaction_id, user, amount, category, type, description, date)
-            print(result)
+            tid = input("Transaction ID: ")
+            print(delete_transaction(account_name, tid))
 
         elif request == 4:
-            transaction_id = input("Enter the transaction ID: ")
-            result = delete_transaction(transaction_id)
-            print(result)
+            tid = input("Transaction ID: ")
+            amount = input("New amount: ")
+            category = input("Category: ")
+            type = input("Type: ")
+            description = input("Description: ")
+            date = input("Date: ")
+
+            print(edit_transaction(
+                account_name, tid,
+                amount, category, type,
+                description, date
+            ))
 
         elif request == 5:
-            user = account_name
-            result = get_financial_summary(user)
-            print(result)
+            print(get_financial_summary(account_name))
 
         elif request == 6:
             save_transactions()
-            print("Exiting Transaction Management System. Goodbye!")
             return
-        
-        else:
-            print("Invalid input. Please enter a number between 1 and 5.")
-            return
-    
+
+
+# ---------------- APP START ----------------
+
 load_data()
 load_transactions()
+
 while True:
-    print("Welcome to the Royal Personal Finance Management System!")
-    print("-----------------------------------------------------------")
+
+    print("Royal Personal Finance Management System")
+    print("--------------------------------------------")
     print("1. Sign Up")
     print("2. Sign In")
-    print("3. Forgot Password")
-    print("4. Deactivate Account")
+    print("3. Deactivate Account")
+    print("4. Forgot Password")
     print("5. Exit")
 
-    request = input("")
-    try:
-        request = int(request)
-    except ValueError:
-        print("Invalid input. Please enter a number between 1 and 5.")
-        continue
+    choice = input("> ")
 
-    if request == 1:
-        account_name = input("Enter your desired account name: ")
-        account_password = input("Enter your desired password: ")
-        account_email = input("Enter your email address: ")
-        result = sign_up(account_name, account_password, account_email)
-        print("Congratulations, you have successfully signed up!")
+    if choice == "1":
+        name = input("Username: ")
+        password = input("Password: ")
+        email = input("Email: ")
+        print(sign_up(name, password, email))
 
-        if "successfully" in result:
-            transaction_menu(account_name)
+    elif choice == "2":
+        name = input("Username: ")
+        password = input("Password: ")
 
-    elif request == 2:
-        account_name = input("Enter your account name: ")
-        account_password = input("Enter your password: ")
-        result = sign_in(account_name, account_password)
-        print(result)
+        if sign_in(name, password) == "Successful":
+            transaction_menu(name)
+        else:
+            print("Login failed")
 
-        if "Successful" in result:
-            transaction_menu(account_name)
-        
-    elif request == 3:
-        account_email = input("Enter your email address: ")
-        account_name = input("Enter your account name: ")
-        account_password = input("Enter your new password: ")
-        result = forgot_password(account_name,account_password,account_email)
-        print(result)
+    elif choice == "3":
+        name = input("Username: ")
+        password= input("Password: ")
+        print(deactivate_account(name,password))
 
-    elif request == 4:
-        account_name = input("Enter your account name: ")
-        account_password = input("Enter your password: ")
-        result = deactivate_account(account_name, account_password)
-        print(result)
+    elif choice == "4":
+        name = input("Account name: ")
+        new_password = input("New Password: ")
+        email = input("Email: ")
+        print(forgot_password(name,new_password,email))
 
-    elif request == 5:
+    elif choice == "5":
         save_data()
-        print("Thank you for using the Royal Personal Finance Management System!")
         break
-    else:
-        print("Invalid input. Please enter a number between 1 and 5.")
