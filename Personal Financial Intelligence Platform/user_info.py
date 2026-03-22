@@ -1,6 +1,7 @@
-import hashlib
+import hashlib # I used this to hash the password to improve security
 import json
 from storage import user_info
+import re # used to validate the email address
 
 
 def save_data():
@@ -37,6 +38,19 @@ def validate_password(new_password):
     return None  
 
 
+
+def validate_email(email):
+    # Basic email regex pattern
+    pattern = r"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
+
+    if not email:
+        return "Email cannot be empty"
+
+    if not re.match(pattern, email):
+        return "Invalid email format"
+
+    return None
+
 def hash_password(password):
     return hashlib.sha256(password.encode()).hexdigest()
 
@@ -47,6 +61,10 @@ def sign_up(name, password, email):
         return "Account name already exists"
 
     error = validate_password(password)
+    if error:
+        return error
+    
+    error = validate_email(email)
     if error:
         return error
 
@@ -74,6 +92,10 @@ def forgot_password(name, new_password, email):
 
     if name not in user_info:
         return "Account does not exist"
+    
+    error = validate_email(email)
+    if error:
+        return error
 
     if email != user_info[name]["email"]:
         return "Invalid email address"

@@ -27,6 +27,7 @@ def add_transaction(user, amount, category, type, description, date):
 
     except ValueError:
         return "Amount should be a number"
+    
     transaction_id = str(uuid.uuid4())
 
     new_transaction = {
@@ -73,7 +74,11 @@ def edit_transaction(user, transaction_id,
     if user not in transaction_history:
         return "No transactions found"
 
-    amount = float(amount)
+    try: 
+        amount = float(amount)
+
+    except ValueError:
+        return "Amount should be a number"
 
     for transaction in transaction_history[user]:
 
