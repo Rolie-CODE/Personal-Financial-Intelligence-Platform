@@ -22,8 +22,11 @@ def add_transaction(user, amount, category, type, description, date):
     if user not in user_info:
         return "User does not exist"
 
-    amount = float(amount)
+    try: 
+        amount = float(amount)
 
+    except ValueError:
+        return "Amount should be a number"
     transaction_id = str(uuid.uuid4())
 
     new_transaction = {

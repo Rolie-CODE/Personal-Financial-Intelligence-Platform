@@ -11,6 +11,11 @@ load_transactions()
 # Create FastAPI app
 app = FastAPI(title="Royal Personal Finance API")
 
+# Home End Point
+@app.get("/")
+def home(account_name: str):
+    return {"result": f"welcome {account_name}"}
+
 # ------------------------
 # User Endpoints
 # ------------------------
