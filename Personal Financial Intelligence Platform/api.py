@@ -13,8 +13,8 @@ app = FastAPI(title="Royal Personal Finance API")
 
 # Home End Point
 @app.get("/")
-def home(account_name: str):
-    return {"result": f"welcome {account_name}"}
+def home():
+    return {"result": "Royal Personal FInance Platform is running"}
 
 # ------------------------
 # User Endpoints
@@ -51,7 +51,7 @@ def api_deactivate_account(account_name: str, password: str):
 @app.post("/transaction/add")
 def api_add_transaction(user: str, amount: float, category: str, type: str, description: str, date: str):
     """Add a new transaction"""
-    result = add_transaction(user, amount, category, type.lower().strip(), description, date)
+    result = add_transaction(user, amount, category.lower().strip(), type.lower().strip(), description, date)
     return {"result": result}
 
 @app.get("/transaction/view")

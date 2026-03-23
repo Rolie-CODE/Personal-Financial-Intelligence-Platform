@@ -2,6 +2,22 @@ import json
 import uuid
 from storage import user_info, transaction_history
 
+CATEGORIES = [
+    "food",
+    "transport",
+    "housing",
+    "bills",
+    "shopping",
+    "education",
+    "entertainment",
+    "health",
+    "family",
+    "income",
+    "savings",
+    "other"
+]
+
+allowed_type = ["income","expense"]
 
 def save_transactions():
     with open('transactions.json', 'w') as file:
@@ -29,6 +45,12 @@ def add_transaction(user, amount, category, type, description, date):
         return "Amount should be a number"
     
     transaction_id = str(uuid.uuid4())
+
+    if category not in CATEGORIES:
+        return "Invalid category"
+    
+    if type not in allowed_type:
+        return "Type should only be income or expense"
 
     new_transaction = {
         "id": transaction_id,
