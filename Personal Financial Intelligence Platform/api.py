@@ -72,7 +72,12 @@ def api_financial_summary(user: str):
     result = get_financial_summary(user)
     return {"balance": result}
 
-@app.get("/spending/category")
+@app.get("/spending/category/expense")
 def api_spending_by_category(user:str):
-    result = spending_by_category(user)
+    result = spending_by_category_expense(user)
+    return {"summary": result}
+
+@app.get("/spending/category/income")
+def api_spending_by_category(user:str):
+    result = spending_by_category_income(user)
     return {"summary": result}
