@@ -24,3 +24,25 @@ def get_financial_summary(user):
         "Total Expenses": expenses,
         "Balance": balance
     }
+
+def spending_by_category(user):
+
+    category_totals = {}
+
+    if user not in transaction_history:
+        return {}
+
+    for transaction in transaction_history[user]:
+
+        if transaction["type"] != "expense":
+            continue
+
+        category = transaction["category"]
+        amount = float(transaction["amount"])
+
+        if category not in category_totals:
+            category_totals[category] = 0
+
+        category_totals[category] += amount
+
+    return category_totals

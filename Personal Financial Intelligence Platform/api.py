@@ -2,7 +2,7 @@
 from fastapi import FastAPI
 from user_info import sign_up, sign_in, forgot_password, deactivate_account, load_data, save_data
 from transactions import add_transaction, view_transactions, delete_transaction, load_transactions, save_transactions
-from analysis import get_financial_summary
+from analysis import *
 
 # Load existing data
 load_data()
@@ -71,3 +71,8 @@ def api_financial_summary(user: str):
     """Get user's financial summary (income - expenses)"""
     result = get_financial_summary(user)
     return {"balance": result}
+
+@app.get("/spending/category")
+def api_spending_by_category(user:str):
+    result = spending_by_category(user)
+    return {"summary": result}
