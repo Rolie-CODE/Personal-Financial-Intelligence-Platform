@@ -81,3 +81,8 @@ def api_spending_by_category(user:str):
 def api_spending_by_category(user:str):
     result = spending_by_category_income(user)
     return {"summary": result}
+
+@app.get("/monthly/analysis")
+def api_monthly_analysis(user:str):
+    result = monthly_analysis(user)
+    return result

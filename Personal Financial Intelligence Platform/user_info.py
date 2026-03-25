@@ -8,7 +8,6 @@ def save_data():
     with open('user_info.json', 'w') as file:
         json.dump(user_info, file, indent=4)
 
-
 def load_data():
     try:
         with open('user_info.json', 'r') as file:
@@ -16,7 +15,6 @@ def load_data():
             user_info.update(data)
     except FileNotFoundError:
         pass
-
 
 def validate_password(new_password):
 
@@ -37,8 +35,6 @@ def validate_password(new_password):
 
     return None  
 
-
-
 def validate_email(email):
     # Basic email regex pattern
     pattern = r"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
@@ -53,7 +49,6 @@ def validate_email(email):
 
 def hash_password(password):
     return hashlib.sha256(password.encode()).hexdigest()
-
 
 def sign_up(name, password, email):
 
@@ -76,7 +71,6 @@ def sign_up(name, password, email):
     save_data()
     return "Account created successfully"
 
-
 def sign_in(name, password):
 
     if name not in user_info:
@@ -86,7 +80,6 @@ def sign_in(name, password):
         return "Successful"
 
     return "Incorrect password"
-
 
 def forgot_password(name, new_password, email):
 
@@ -108,7 +101,6 @@ def forgot_password(name, new_password, email):
     save_data()
 
     return "Password changed successfully"
-
 
 def deactivate_account(name, password):
 

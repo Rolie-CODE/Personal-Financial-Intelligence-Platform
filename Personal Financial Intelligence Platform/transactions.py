@@ -43,7 +43,7 @@ def validate_date(input_date):
         raise ValueError("Invalid date format. Use YYYY-MM-DD")
 
     return parsed_date
-
+                    
 
 def add_transaction(user, amount, category, type, description, date):
 
