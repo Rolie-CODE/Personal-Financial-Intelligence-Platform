@@ -1,6 +1,7 @@
 import json
 import uuid
 from storage import user_info, transaction_history
+from datetime import datetime
 
 CATEGORIES = [
     "food",
@@ -33,6 +34,17 @@ def load_transactions():
         pass
 
 
+from datetime import datetime, date
+
+def validate_date(input_date):
+    try:
+        parsed_date = datetime.strptime(input_date, "%Y-%m-%d").date()
+    except ValueError:
+        raise ValueError("Invalid date format. Use YYYY-MM-DD")
+
+    return parsed_date
+
+
 def add_transaction(user, amount, category, type, description, date):
 
     if user not in user_info:
@@ -46,6 +58,10 @@ def add_transaction(user, amount, category, type, description, date):
     
     transaction_id = str(uuid.uuid4())
 
+    validation_error = validate_date(date)
+    if validation_error:
+        return validation_error
+    
     if category not in CATEGORIES:
         return "Invalid category"
     
