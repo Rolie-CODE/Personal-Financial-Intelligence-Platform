@@ -4,10 +4,6 @@ from user_info import sign_up, sign_in, forgot_password, deactivate_account, loa
 from transactions import add_transaction, view_transactions, delete_transaction, load_transactions, save_transactions
 from analysis import *
 
-from flask import Flask, jsonify
-
-app = Flask(__name__)
-
 # Load existing data
 load_data()
 load_transactions()
