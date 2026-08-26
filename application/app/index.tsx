@@ -3,21 +3,23 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 export default function Sign_Up() {
   return (
-    <View>
-      <View>
-        <FontAwesome name="lock" size={24} color="black" />
+    <View style={{}}>
+      <View style = {{alignItems: 'center', gap: '40'}}>
+        <View style= {{alignItems: 'center', marginTop: 20}}>
+            <FontAwesome name="lock" size={44} color="#0096C7" />
+        </View>
 
-        <Text>Sign In</Text>
+        <Text style = {{color:'white', fontWeight: 'bold', fontSize: '34'}}>Sign In</Text>
       </View>
 
       <View>
-        <Text>Account Name</Text>
+        <Text style = {{color:'white'}}>Account Name</Text>
 
         <TextInput placeholder="AccountName"></TextInput>
       </View>
 
       <View>
-        <Text>Password</Text>
+        <Text style = {{color:'white'}}>Password</Text>
 
         <TextInput placeholder="......."></TextInput>
       </View>
@@ -27,12 +29,12 @@ export default function Sign_Up() {
       </TouchableOpacity>
 
       <View>
-        <Text>Forgot Password?</Text>
+        <Text style = {{color:'white'}}>Forgot Password?</Text>
 
         <View>
-          <Text>No account?</Text>
+          <Text style = {{color:'white'}}>No account?</Text>
 
-          <Text>Sign Up!</Text>
+          <Text style = {{color:'white'}}>Sign Up!</Text>
         </View>
       </View>
     </View>
