@@ -1,10 +1,11 @@
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 export default function Sign_Up() {
   return (
     <View>
       <View>
-        <Text>Lock</Text>
+        <FontAwesome name="lock" size={24} color="black" />
 
         <Text>Sign In</Text>
       </View>
