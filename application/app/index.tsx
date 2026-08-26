@@ -13,19 +13,19 @@ export default function Sign_Up() {
       </View>
 
       <View>
-        <Text style = {{color:'white'}}>Account Name</Text>
+        <Text style = {{color:'#FDFFF5', marginLeft: 40, fontSize: 18, marginTop: 20}}>Account Name</Text>
 
-        <TextInput placeholder="AccountName"></TextInput>
+        <TextInput placeholder="AccountName" style = {{marginLeft: 50, borderWidth: 0.5, borderColor: '#FDFFF5', marginRight: 50, height: 50, borderRadius:8, marginTop: 20}}></TextInput>
       </View>
 
       <View>
-        <Text style = {{color:'white'}}>Password</Text>
+        <Text style = {{color:'#FDFFF5', marginLeft: 40, fontSize: 18, marginTop: 20}}>Password</Text>
 
-        <TextInput placeholder="......."></TextInput>
+        <TextInput placeholder="......." style = {{marginLeft: 50, borderWidth: 0.5, borderColor: '#FDFFF5', marginRight: 50, height: 50, borderRadius:8, marginTop: 20}}></TextInput>
       </View>
 
       <TouchableOpacity>
-        <Text style={{ color: "white" }}>Sign In</Text>
+        <Text style={{ color: "white" , marginLeft: 40}}>Sign In</Text>
       </TouchableOpacity>
 
       <View>
