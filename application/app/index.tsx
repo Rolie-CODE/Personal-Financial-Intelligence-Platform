@@ -5,10 +5,10 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  SafeAreaView,
 } from "react-native";
 import { router } from "expo-router";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Sign_Up() {
   const [accountName, setAccountName] = useState("");
