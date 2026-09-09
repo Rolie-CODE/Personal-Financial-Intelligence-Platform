@@ -160,3 +160,5 @@ export default function CreateAccount() {
         </SafeAreaView>
     );
 }
+
+// optimize this
