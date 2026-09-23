@@ -9,6 +9,7 @@ import {
 import { router } from "expo-router";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useRouter } from 'expo-router';
 
 export default function Sign_Up() {
   const [accountName, setAccountName] = useState("");
@@ -177,8 +178,9 @@ export default function Sign_Up() {
           }}
         >
           <Text style={{ color: "white" }}>No account?</Text>
+0.
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => router.push('/create_account')} >
             <Text style={{ color: "#0096C7" }}>Sign Up!</Text>
           </TouchableOpacity>
         </View>
