@@ -1,0 +1,629 @@
+﻿{
+    "openapi":  "3.1.0",
+    "info":  {
+                 "title":  "Royal Personal Finance API",
+                 "version":  "0.1.0"
+             },
+    "paths":  {
+                  "/":  {
+                            "get":  {
+                                        "summary":  "Home",
+                                        "operationId":  "home__get",
+                                        "responses":  {
+                                                          "200":  {
+                                                                      "description":  "Successful Response",
+                                                                      "content":  {
+                                                                                      "application/json":  {
+                                                                                                               "schema":  {
+
+                                                                                                                          }
+                                                                                                           }
+                                                                                  }
+                                                                  }
+                                                      }
+                                    }
+                        },
+                  "/signup":  {
+                                  "post":  {
+                                               "summary":  "Api Sign Up",
+                                               "description":  "Create a new account",
+                                               "operationId":  "api_sign_up_signup_post",
+                                               "parameters":  [
+                                                                  {
+                                                                      "name":  "account_name",
+                                                                      "in":  "query",
+                                                                      "required":  true,
+                                                                      "schema":  {
+                                                                                     "type":  "string",
+                                                                                     "title":  "Account Name"
+                                                                                 }
+                                                                  },
+                                                                  {
+                                                                      "name":  "password",
+                                                                      "in":  "query",
+                                                                      "required":  true,
+                                                                      "schema":  {
+                                                                                     "type":  "string",
+                                                                                     "title":  "Password"
+                                                                                 }
+                                                                  },
+                                                                  {
+                                                                      "name":  "email",
+                                                                      "in":  "query",
+                                                                      "required":  true,
+                                                                      "schema":  {
+                                                                                     "type":  "string",
+                                                                                     "title":  "Email"
+                                                                                 }
+                                                                  }
+                                                              ],
+                                               "responses":  {
+                                                                 "200":  {
+                                                                             "description":  "Successful Response",
+                                                                             "content":  {
+                                                                                             "application/json":  {
+                                                                                                                      "schema":  {
+
+                                                                                                                                 }
+                                                                                                                  }
+                                                                                         }
+                                                                         },
+                                                                 "422":  {
+                                                                             "description":  "Validation Error",
+                                                                             "content":  {
+                                                                                             "application/json":  {
+                                                                                                                      "schema":  {
+                                                                                                                                     "$ref":  "#/components/schemas/HTTPValidationError"
+                                                                                                                                 }
+                                                                                                                  }
+                                                                                         }
+                                                                         }
+                                                             }
+                                           }
+                              },
+                  "/signin":  {
+                                  "post":  {
+                                               "summary":  "Api Sign In",
+                                               "description":  "Sign in with account credentials",
+                                               "operationId":  "api_sign_in_signin_post",
+                                               "parameters":  [
+                                                                  {
+                                                                      "name":  "account_name",
+                                                                      "in":  "query",
+                                                                      "required":  true,
+                                                                      "schema":  {
+                                                                                     "type":  "string",
+                                                                                     "title":  "Account Name"
+                                                                                 }
+                                                                  },
+                                                                  {
+                                                                      "name":  "password",
+                                                                      "in":  "query",
+                                                                      "required":  true,
+                                                                      "schema":  {
+                                                                                     "type":  "string",
+                                                                                     "title":  "Password"
+                                                                                 }
+                                                                  }
+                                                              ],
+                                               "responses":  {
+                                                                 "200":  {
+                                                                             "description":  "Successful Response",
+                                                                             "content":  {
+                                                                                             "application/json":  {
+                                                                                                                      "schema":  {
+
+                                                                                                                                 }
+                                                                                                                  }
+                                                                                         }
+                                                                         },
+                                                                 "422":  {
+                                                                             "description":  "Validation Error",
+                                                                             "content":  {
+                                                                                             "application/json":  {
+                                                                                                                      "schema":  {
+                                                                                                                                     "$ref":  "#/components/schemas/HTTPValidationError"
+                                                                                                                                 }
+                                                                                                                  }
+                                                                                         }
+                                                                         }
+                                                             }
+                                           }
+                              },
+                  "/forgot-password":  {
+                                           "post":  {
+                                                        "summary":  "Api Forgot Password",
+                                                        "description":  "Reset password",
+                                                        "operationId":  "api_forgot_password_forgot_password_post",
+                                                        "parameters":  [
+                                                                           {
+                                                                               "name":  "account_name",
+                                                                               "in":  "query",
+                                                                               "required":  true,
+                                                                               "schema":  {
+                                                                                              "type":  "string",
+                                                                                              "title":  "Account Name"
+                                                                                          }
+                                                                           },
+                                                                           {
+                                                                               "name":  "new_password",
+                                                                               "in":  "query",
+                                                                               "required":  true,
+                                                                               "schema":  {
+                                                                                              "type":  "string",
+                                                                                              "title":  "New Password"
+                                                                                          }
+                                                                           },
+                                                                           {
+                                                                               "name":  "email",
+                                                                               "in":  "query",
+                                                                               "required":  true,
+                                                                               "schema":  {
+                                                                                              "type":  "string",
+                                                                                              "title":  "Email"
+                                                                                          }
+                                                                           }
+                                                                       ],
+                                                        "responses":  {
+                                                                          "200":  {
+                                                                                      "description":  "Successful Response",
+                                                                                      "content":  {
+                                                                                                      "application/json":  {
+                                                                                                                               "schema":  {
+
+                                                                                                                                          }
+                                                                                                                           }
+                                                                                                  }
+                                                                                  },
+                                                                          "422":  {
+                                                                                      "description":  "Validation Error",
+                                                                                      "content":  {
+                                                                                                      "application/json":  {
+                                                                                                                               "schema":  {
+                                                                                                                                              "$ref":  "#/components/schemas/HTTPValidationError"
+                                                                                                                                          }
+                                                                                                                           }
+                                                                                                  }
+                                                                                  }
+                                                                      }
+                                                    }
+                                       },
+                  "/deactivate":  {
+                                      "post":  {
+                                                   "summary":  "Api Deactivate Account",
+                                                   "description":  "Deactivate account",
+                                                   "operationId":  "api_deactivate_account_deactivate_post",
+                                                   "parameters":  [
+                                                                      {
+                                                                          "name":  "account_name",
+                                                                          "in":  "query",
+                                                                          "required":  true,
+                                                                          "schema":  {
+                                                                                         "type":  "string",
+                                                                                         "title":  "Account Name"
+                                                                                     }
+                                                                      },
+                                                                      {
+                                                                          "name":  "password",
+                                                                          "in":  "query",
+                                                                          "required":  true,
+                                                                          "schema":  {
+                                                                                         "type":  "string",
+                                                                                         "title":  "Password"
+                                                                                     }
+                                                                      }
+                                                                  ],
+                                                   "responses":  {
+                                                                     "200":  {
+                                                                                 "description":  "Successful Response",
+                                                                                 "content":  {
+                                                                                                 "application/json":  {
+                                                                                                                          "schema":  {
+
+                                                                                                                                     }
+                                                                                                                      }
+                                                                                             }
+                                                                             },
+                                                                     "422":  {
+                                                                                 "description":  "Validation Error",
+                                                                                 "content":  {
+                                                                                                 "application/json":  {
+                                                                                                                          "schema":  {
+                                                                                                                                         "$ref":  "#/components/schemas/HTTPValidationError"
+                                                                                                                                     }
+                                                                                                                      }
+                                                                                             }
+                                                                             }
+                                                                 }
+                                               }
+                                  },
+                  "/transaction/add":  {
+                                           "post":  {
+                                                        "summary":  "Api Add Transaction",
+                                                        "description":  "Add a new transaction",
+                                                        "operationId":  "api_add_transaction_transaction_add_post",
+                                                        "parameters":  [
+                                                                           {
+                                                                               "name":  "user",
+                                                                               "in":  "query",
+                                                                               "required":  true,
+                                                                               "schema":  {
+                                                                                              "type":  "string",
+                                                                                              "title":  "User"
+                                                                                          }
+                                                                           },
+                                                                           {
+                                                                               "name":  "amount",
+                                                                               "in":  "query",
+                                                                               "required":  true,
+                                                                               "schema":  {
+                                                                                              "type":  "number",
+                                                                                              "title":  "Amount"
+                                                                                          }
+                                                                           },
+                                                                           {
+                                                                               "name":  "category",
+                                                                               "in":  "query",
+                                                                               "required":  true,
+                                                                               "schema":  {
+                                                                                              "type":  "string",
+                                                                                              "title":  "Category"
+                                                                                          }
+                                                                           },
+                                                                           {
+                                                                               "name":  "type",
+                                                                               "in":  "query",
+                                                                               "required":  true,
+                                                                               "schema":  {
+                                                                                              "type":  "string",
+                                                                                              "title":  "Type"
+                                                                                          }
+                                                                           },
+                                                                           {
+                                                                               "name":  "description",
+                                                                               "in":  "query",
+                                                                               "required":  true,
+                                                                               "schema":  {
+                                                                                              "type":  "string",
+                                                                                              "title":  "Description"
+                                                                                          }
+                                                                           },
+                                                                           {
+                                                                               "name":  "date",
+                                                                               "in":  "query",
+                                                                               "required":  true,
+                                                                               "schema":  {
+                                                                                              "type":  "string",
+                                                                                              "title":  "Date"
+                                                                                          }
+                                                                           }
+                                                                       ],
+                                                        "responses":  {
+                                                                          "200":  {
+                                                                                      "description":  "Successful Response",
+                                                                                      "content":  {
+                                                                                                      "application/json":  {
+                                                                                                                               "schema":  {
+
+                                                                                                                                          }
+                                                                                                                           }
+                                                                                                  }
+                                                                                  },
+                                                                          "422":  {
+                                                                                      "description":  "Validation Error",
+                                                                                      "content":  {
+                                                                                                      "application/json":  {
+                                                                                                                               "schema":  {
+                                                                                                                                              "$ref":  "#/components/schemas/HTTPValidationError"
+                                                                                                                                          }
+                                                                                                                           }
+                                                                                                  }
+                                                                                  }
+                                                                      }
+                                                    }
+                                       },
+                  "/transaction/view":  {
+                                            "get":  {
+                                                        "summary":  "Api View Transactions",
+                                                        "description":  "View all transactions for a user",
+                                                        "operationId":  "api_view_transactions_transaction_view_get",
+                                                        "parameters":  [
+                                                                           {
+                                                                               "name":  "user",
+                                                                               "in":  "query",
+                                                                               "required":  true,
+                                                                               "schema":  {
+                                                                                              "type":  "string",
+                                                                                              "title":  "User"
+                                                                                          }
+                                                                           }
+                                                                       ],
+                                                        "responses":  {
+                                                                          "200":  {
+                                                                                      "description":  "Successful Response",
+                                                                                      "content":  {
+                                                                                                      "application/json":  {
+                                                                                                                               "schema":  {
+
+                                                                                                                                          }
+                                                                                                                           }
+                                                                                                  }
+                                                                                  },
+                                                                          "422":  {
+                                                                                      "description":  "Validation Error",
+                                                                                      "content":  {
+                                                                                                      "application/json":  {
+                                                                                                                               "schema":  {
+                                                                                                                                              "$ref":  "#/components/schemas/HTTPValidationError"
+                                                                                                                                          }
+                                                                                                                           }
+                                                                                                  }
+                                                                                  }
+                                                                      }
+                                                    }
+                                        },
+                  "/transaction/delete":  {
+                                              "delete":  {
+                                                             "summary":  "Api Delete Transaction",
+                                                             "description":  "Delete a transaction by ID",
+                                                             "operationId":  "api_delete_transaction_transaction_delete_delete",
+                                                             "parameters":  [
+                                                                                {
+                                                                                    "name":  "user",
+                                                                                    "in":  "query",
+                                                                                    "required":  true,
+                                                                                    "schema":  {
+                                                                                                   "type":  "string",
+                                                                                                   "title":  "User"
+                                                                                               }
+                                                                                },
+                                                                                {
+                                                                                    "name":  "transaction_id",
+                                                                                    "in":  "query",
+                                                                                    "required":  true,
+                                                                                    "schema":  {
+                                                                                                   "type":  "string",
+                                                                                                   "title":  "Transaction Id"
+                                                                                               }
+                                                                                }
+                                                                            ],
+                                                             "responses":  {
+                                                                               "200":  {
+                                                                                           "description":  "Successful Response",
+                                                                                           "content":  {
+                                                                                                           "application/json":  {
+                                                                                                                                    "schema":  {
+
+                                                                                                                                               }
+                                                                                                                                }
+                                                                                                       }
+                                                                                       },
+                                                                               "422":  {
+                                                                                           "description":  "Validation Error",
+                                                                                           "content":  {
+                                                                                                           "application/json":  {
+                                                                                                                                    "schema":  {
+                                                                                                                                                   "$ref":  "#/components/schemas/HTTPValidationError"
+                                                                                                                                               }
+                                                                                                                                }
+                                                                                                       }
+                                                                                       }
+                                                                           }
+                                                         }
+                                          },
+                  "/transaction/summary":  {
+                                               "get":  {
+                                                           "summary":  "Api Financial Summary",
+                                                           "description":  "Get user\u0027s financial summary (income - expenses)",
+                                                           "operationId":  "api_financial_summary_transaction_summary_get",
+                                                           "parameters":  [
+                                                                              {
+                                                                                  "name":  "user",
+                                                                                  "in":  "query",
+                                                                                  "required":  true,
+                                                                                  "schema":  {
+                                                                                                 "type":  "string",
+                                                                                                 "title":  "User"
+                                                                                             }
+                                                                              }
+                                                                          ],
+                                                           "responses":  {
+                                                                             "200":  {
+                                                                                         "description":  "Successful Response",
+                                                                                         "content":  {
+                                                                                                         "application/json":  {
+                                                                                                                                  "schema":  {
+
+                                                                                                                                             }
+                                                                                                                              }
+                                                                                                     }
+                                                                                     },
+                                                                             "422":  {
+                                                                                         "description":  "Validation Error",
+                                                                                         "content":  {
+                                                                                                         "application/json":  {
+                                                                                                                                  "schema":  {
+                                                                                                                                                 "$ref":  "#/components/schemas/HTTPValidationError"
+                                                                                                                                             }
+                                                                                                                              }
+                                                                                                     }
+                                                                                     }
+                                                                         }
+                                                       }
+                                           },
+                  "/spending/category/expense":  {
+                                                     "get":  {
+                                                                 "summary":  "Api Spending By Category",
+                                                                 "operationId":  "api_spending_by_category_spending_category_expense_get",
+                                                                 "parameters":  [
+                                                                                    {
+                                                                                        "name":  "user",
+                                                                                        "in":  "query",
+                                                                                        "required":  true,
+                                                                                        "schema":  {
+                                                                                                       "type":  "string",
+                                                                                                       "title":  "User"
+                                                                                                   }
+                                                                                    }
+                                                                                ],
+                                                                 "responses":  {
+                                                                                   "200":  {
+                                                                                               "description":  "Successful Response",
+                                                                                               "content":  {
+                                                                                                               "application/json":  {
+                                                                                                                                        "schema":  {
+
+                                                                                                                                                   }
+                                                                                                                                    }
+                                                                                                           }
+                                                                                           },
+                                                                                   "422":  {
+                                                                                               "description":  "Validation Error",
+                                                                                               "content":  {
+                                                                                                               "application/json":  {
+                                                                                                                                        "schema":  {
+                                                                                                                                                       "$ref":  "#/components/schemas/HTTPValidationError"
+                                                                                                                                                   }
+                                                                                                                                    }
+                                                                                                           }
+                                                                                           }
+                                                                               }
+                                                             }
+                                                 },
+                  "/spending/category/income":  {
+                                                    "get":  {
+                                                                "summary":  "Api Spending By Category",
+                                                                "operationId":  "api_spending_by_category_spending_category_income_get",
+                                                                "parameters":  [
+                                                                                   {
+                                                                                       "name":  "user",
+                                                                                       "in":  "query",
+                                                                                       "required":  true,
+                                                                                       "schema":  {
+                                                                                                      "type":  "string",
+                                                                                                      "title":  "User"
+                                                                                                  }
+                                                                                   }
+                                                                               ],
+                                                                "responses":  {
+                                                                                  "200":  {
+                                                                                              "description":  "Successful Response",
+                                                                                              "content":  {
+                                                                                                              "application/json":  {
+                                                                                                                                       "schema":  {
+
+                                                                                                                                                  }
+                                                                                                                                   }
+                                                                                                          }
+                                                                                          },
+                                                                                  "422":  {
+                                                                                              "description":  "Validation Error",
+                                                                                              "content":  {
+                                                                                                              "application/json":  {
+                                                                                                                                       "schema":  {
+                                                                                                                                                      "$ref":  "#/components/schemas/HTTPValidationError"
+                                                                                                                                                  }
+                                                                                                                                   }
+                                                                                                          }
+                                                                                          }
+                                                                              }
+                                                            }
+                                                },
+                  "/monthly/summary":  {
+                                           "get":  {
+                                                       "summary":  "Api Monthly Summary",
+                                                       "operationId":  "api_monthly_summary_monthly_summary_get",
+                                                       "parameters":  [
+                                                                          {
+                                                                              "name":  "user",
+                                                                              "in":  "query",
+                                                                              "required":  true,
+                                                                              "schema":  {
+                                                                                             "type":  "string",
+                                                                                             "title":  "User"
+                                                                                         }
+                                                                          }
+                                                                      ],
+                                                       "responses":  {
+                                                                         "200":  {
+                                                                                     "description":  "Successful Response",
+                                                                                     "content":  {
+                                                                                                     "application/json":  {
+                                                                                                                              "schema":  {
+
+                                                                                                                                         }
+                                                                                                                          }
+                                                                                                 }
+                                                                                 },
+                                                                         "422":  {
+                                                                                     "description":  "Validation Error",
+                                                                                     "content":  {
+                                                                                                     "application/json":  {
+                                                                                                                              "schema":  {
+                                                                                                                                             "$ref":  "#/components/schemas/HTTPValidationError"
+                                                                                                                                         }
+                                                                                                                          }
+                                                                                                 }
+                                                                                 }
+                                                                     }
+                                                   }
+                                       }
+              },
+    "components":  {
+                       "schemas":  {
+                                       "HTTPValidationError":  {
+                                                                   "properties":  {
+                                                                                      "detail":  {
+                                                                                                     "items":  {
+                                                                                                                   "$ref":  "#/components/schemas/ValidationError"
+                                                                                                               },
+                                                                                                     "type":  "array",
+                                                                                                     "title":  "Detail"
+                                                                                                 }
+                                                                                  },
+                                                                   "type":  "object",
+                                                                   "title":  "HTTPValidationError"
+                                                               },
+                                       "ValidationError":  {
+                                                               "properties":  {
+                                                                                  "loc":  {
+                                                                                              "items":  {
+                                                                                                            "anyOf":  [
+                                                                                                                          {
+                                                                                                                              "type":  "string"
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                              "type":  "integer"
+                                                                                                                          }
+                                                                                                                      ]
+                                                                                                        },
+                                                                                              "type":  "array",
+                                                                                              "title":  "Location"
+                                                                                          },
+                                                                                  "msg":  {
+                                                                                              "type":  "string",
+                                                                                              "title":  "Message"
+                                                                                          },
+                                                                                  "type":  {
+                                                                                               "type":  "string",
+                                                                                               "title":  "Error Type"
+                                                                                           },
+                                                                                  "input":  {
+                                                                                                "title":  "Input"
+                                                                                            },
+                                                                                  "ctx":  {
+                                                                                              "type":  "object",
+                                                                                              "title":  "Context"
+                                                                                          }
+                                                                              },
+                                                               "type":  "object",
+                                                               "required":  [
+                                                                                "loc",
+                                                                                "msg",
+                                                                                "type"
+                                                                            ],
+                                                               "title":  "ValidationError"
+                                                           }
+                                   }
+                   }
+}
